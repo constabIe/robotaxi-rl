@@ -1,0 +1,45 @@
+[project]
+name = "robotaxi"
+version = "0.1.0"
+description = "Robotaxi RL environment in JAX"
+readme = "readme.md"
+authors = [
+    { name = "Almir Avhadiev", email = "almir.avhadiev@gmail.com" }
+]
+requires-python = "==3.11.*"
+dependencies = [
+    "chex>=0.1.92",
+    "equinox>=0.13.8",
+    "flax>=0.12.8",
+    "imageio>=2.38.2",
+    "imageio-ffmpeg>=0.8.1",
+    "jax>=0.10.2",
+    "numpy>=2.4.6",
+    "optax>=0.2.9",
+    "pygame>=2.6.1",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.4.0",
+    "pytest>=8",
+    "ruff>=0.17.3",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
+# Teacher's files (upstream) are left as they are.
+extend-exclude = [
+    "src/main.py",
+    "src/env/__init__.py",
+    "src/env/base.py",
+    "src/env/tasks.py",
+    "src/utils/",
+]
